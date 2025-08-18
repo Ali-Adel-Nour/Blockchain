@@ -1,4 +1,6 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
+
 
 contract SimpleStroage  {
 
@@ -11,10 +13,12 @@ contract SimpleStroage  {
 
  Person [] public listofPeoples; 
 
+ mapping (string => uint256) public nameToFavoriteNumber;
+
  function addPerson(string memory name, uint256 _favoriteNumber) public {
 
    listofPeoples.push(Person({favoriteNumber: _favoriteNumber, name: name}));
-
+   nameToFavoriteNumber[name] = _favoriteNumber;
  }
 
    // Person public pat  = Person(2, "Pat"); // good 
